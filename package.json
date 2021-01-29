@@ -6,7 +6,15 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint . --fix --ext .js"
+    "lint": "eslint . --fix --ext .js",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "setupFiles": ["./jestSetupFile.js"]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.3",
@@ -27,13 +35,17 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-native": "^3.10.0"
+    "eslint-plugin-react-native": "^3.10.0",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.1"
   },
   "private": true
 }

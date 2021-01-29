@@ -25,9 +25,13 @@ const DetailScreen = ({ route }) => {
         Detail Screen
         { clickNumber }
       </Text>
+      <Text>
+        Current Value
+        { clickNumber }
+      </Text>
       <Button
         onPress={onSaveState}
-        title="Save data"
+        title="Press to save value"
         color={colors.second}
       />
     </View>

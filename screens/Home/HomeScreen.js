@@ -10,8 +10,29 @@ import { getData, STORAGE_KEYS } from '../../services/Storage';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 10,
+  },
+  title: {
+    flex: 1,
+    textAlign: 'center',
+  },
+  body: {
+    flex: 2,
+    flexDirection: 'row',
+  },
+  footer: {
+    flex: 2,
+  },
+  counterValue: {
+    flex: 0.5,
+  },
+  counterAction: {
+    flex: 0.5,
+  },
+  value: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
@@ -32,20 +53,26 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>
-        Home Screen
-        {value}
-      </Text>
-      <Button
-        onPress={onPressLearnMore}
-        title="Learn More"
-        color={colors.default}
-      />
-      <Button
-        onPress={() => navigation.navigate(Routes.Details, { clickNumber: value })}
-        title="Go to Detail Page"
-        color={colors.default}
-      />
+      <Text style={styles.title}>Home Screen</Text>
+      <View style={styles.body}>
+        <View style={styles.counterValue}>
+          <Text style={styles.value}>{value}</Text>
+        </View>
+        <View style={styles.counterAction}>
+          <Button
+            onPress={onPressLearnMore}
+            title="Add One"
+            color={colors.default}
+          />
+        </View>
+      </View>
+      <View styles={styles.footer}>
+        <Button
+          onPress={() => navigation.navigate(Routes.Details, { clickNumber: value })}
+          title="Go to Detail Page"
+          color={colors.default}
+        />
+      </View>
     </View>
   );
 };
