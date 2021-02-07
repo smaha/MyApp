@@ -9,7 +9,7 @@ describe('<HomeScreen />', () => {
       <HomeScreen {...props} />,
     );
 
-    fireEvent.press(getByText('Add One'));
+    fireEvent.press(getByText('Increment value'));
 
     expect(getByText('1')).toBeTruthy();
   });

@@ -1,8 +1,6 @@
 # MyApp
 
-React Native Template
-
-you can use this project as a started template to your react navigation project, build with expo & react navigation
+React Native Template build with Expo and React Navigation, before running the project be sur you have Node 12 and expo-cli intalled
 
 # run app
 

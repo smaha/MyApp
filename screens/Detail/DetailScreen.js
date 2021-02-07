@@ -1,39 +1,49 @@
 import * as React from 'react';
-import {
-  View, Text, StyleSheet, Button,
-} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { storeData, STORAGE_KEYS } from '../../services/Storage';
+import { storeData, getData, STORAGE_KEYS } from '../../services/Storage';
 import colors from '../../utils/colors';
+import BasicButton from '../../components/BasicButton';
+import NumberInfo from '../../components/NumberInfo';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  infoArea: {
+    flex: 2,
+  },
+  btn: {
+    flex: 3,
   },
 });
 
 const DetailScreen = ({ route }) => {
   const { clickNumber } = route.params;
+  const [persistedValue, setPersistedValue] = React.useState(null);
   const onSaveState = () => {
     storeData(STORAGE_KEYS.TOTAL, clickNumber);
   };
+  React.useEffect(() => {
+    getData(STORAGE_KEYS.TOTAL).then((storedValue) => {
+      if (storedValue) {
+        setPersistedValue(storedValue);
+      }
+    });
+  }, []);
   return (
     <View style={styles.container}>
-      <Text>
-        Detail Screen
-        { clickNumber }
-      </Text>
-      <Text>
-        Current Value
-        { clickNumber }
-      </Text>
-      <Button
-        onPress={onSaveState}
-        title="Press to save value"
-        color={colors.second}
-      />
+      <View style={styles.infoArea}>
+        <NumberInfo label="Persisted value" value={persistedValue} />
+        <NumberInfo label="Current Value" value={clickNumber} />
+      </View>
+      <View style={styles.btn}>
+        <BasicButton
+          onPress={onSaveState}
+          title="Persist value"
+          color={colors.second}
+        />
+      </View>
     </View>
   );
 };

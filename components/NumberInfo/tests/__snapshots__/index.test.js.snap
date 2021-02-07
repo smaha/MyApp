@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NumberInfo /> To Match Snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "flex": 1,
+        "textAlign": "center",
+      }
+    }
+  >
+    hello
+  </Text>
+  <Text
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    5
+  </Text>
+</View>
+`;

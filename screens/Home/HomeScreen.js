@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {
-  View, Text, StyleSheet, Button,
+  View, Text, StyleSheet,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Routes from '../../utils/routes';
-import colors from '../../utils/colors';
 import { getData, STORAGE_KEYS } from '../../services/Storage';
+import BasicButton from '../../components/BasicButton';
+import NumberInfo from '../../components/NumberInfo';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,11 +30,6 @@ const styles = StyleSheet.create({
   counterAction: {
     flex: 0.5,
   },
-  value: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
 });
 
 const HomeScreen = ({ navigation }) => {
@@ -56,21 +52,19 @@ const HomeScreen = ({ navigation }) => {
       <Text style={styles.title}>Home Screen</Text>
       <View style={styles.body}>
         <View style={styles.counterValue}>
-          <Text style={styles.value}>{value}</Text>
+          <NumberInfo value={value} />
         </View>
         <View style={styles.counterAction}>
-          <Button
+          <BasicButton
             onPress={onPressLearnMore}
-            title="Add One"
-            color={colors.default}
+            title="Increment value"
           />
         </View>
       </View>
       <View styles={styles.footer}>
-        <Button
+        <BasicButton
           onPress={() => navigation.navigate(Routes.Details, { clickNumber: value })}
-          title="Go to Detail Page"
-          color={colors.default}
+          title="Go to Detail Screen"
         />
       </View>
     </View>
