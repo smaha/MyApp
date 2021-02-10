@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 const HomeScreen = ({ navigation }) => {
   const [value, setValue] = React.useState(0);
 
-  const onPressLearnMore = () => {
+  const onIncrease = () => {
     setValue(value + 1);
   };
 
@@ -56,8 +56,8 @@ const HomeScreen = ({ navigation }) => {
         </View>
         <View style={styles.counterAction}>
           <BasicButton
-            onPress={onPressLearnMore}
-            title="Increment value"
+            onPress={onIncrease}
+            title="Increase"
           />
         </View>
       </View>
